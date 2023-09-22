@@ -1,0 +1,77 @@
+After doing the glfw , work for making a simple application window appear.
+The Imgui work starts within the main function.
+
+
+//all of the pre-requires function calls for glfw and opengl take place within the main function
+
+//when u create a window using the glfw functions, u can assign the dimensions of that window, within the function
+GLFWwindow8 window = glfwCreateWindow(width,height,window title, nullptr/monitor, nullptr);
+
+
+
+Each of the imgui window can be made with :
+
+For having custom window position and size 
+ImGui::SetNextWindowSize(ImVec2());
+ImGui::SetNextWindowPos(ImVec2());
+
+
+//for having stylised windows and componenets with border roundign frame rounding and padding
+//warning this stuff goes in a main loop, beware it is for all things on screen
+ImGuiStyle* style = ImGui::GetStyle();
+style.WindowRounding  = 20.0f;
+style.WindowPadding = ImVec2();
+style.WindowTitleAlign = ImVec2(0.5f,0.5f);
+style.WindowFramePadding = ImVec2();
+style.ChildRounding = 20.0f;
+style.FrameRounding = 20.0f;
+
+ImGui::PushStylwColor(ImGuiCol_WindowBg, ImVec4());
+ImGui::Begin("window title",nullptr,ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse| ImGuiWindowFlags_NoMenuBar | ImGuiWindowFlags_NoMove);
+
+
+//anything in between will be put within this window
+
+//for having stuff drawn on the screen we will take drawlist from imgui
+//we have ImGui::GetWindowDrawList()->AddRectFilled();
+//we have ImGui::GetForegroundDrawList()-AddRectFilled();
+/we have ImGui::GetBackgroundDrawList()->AddRectFilled();
+//we have ImDrawlist() as well;
+ImDrawList* drawlist = ImGui::GetWindowDrawList(); //and then we could do
+drawlist->AddRectFilledMultiColor();
+
+
+
+//we can aslo have a tab bar, with each individual tab depicting a different section on the window
+
+ImGui::BeginTabBar();
+ImGui::BeginTabItem();
+
+
+ImGui::EndTabItem();
+ImGui::EndTabBar();
+
+
+ImGui::End()
+
+
+//we can also change the background color of the main glfw window
+the function that handles that is
+glClearColor(); /this functions expects 4 values
+// so incase u plan on making an ImVec4 something = ImVec4(); u can get its value like
+//something.w,something.x,something.y,something.z
+
+
+//for dealing with colors
+
+{
+
+ImU32 color_a = ImGui::GetColorU32(IM_COL32(144,24,24,255)); //rgba values
+ImVec2 position = ImGui::GetCursorScreenPos();
+ImVECT position_two = ImVec2(position.x , position.y);
+ImGui:GetWindowDrawList()->AddRectFilledMultiColor(position,position_two, color,color,color,color);
+
+
+
+
+}
