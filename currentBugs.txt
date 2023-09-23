@@ -1,0 +1,2 @@
+bugs:
+1:Having the background behind the purple middle option which says "STICKS-DESCEND (DEARI IMGUI)" accidentally clicked, the components along the line of this middle purple option are no longer accessible
