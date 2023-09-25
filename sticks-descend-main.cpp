@@ -420,4 +420,27 @@ int main()
 }
 
 // 2 things we learned today, first off all
+//dont leave the main functions within the imgui library empty.Its a unique, id for each of the imgui element.
+//always provide popStyleColor(), after using the pushStyleColor();
+//try defining your global vars for the imgui elements and function within the main function.
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // all of your imgui declarative Begin functions within a user defined function go outside of the main function, but the variables based on which they are defined tend to go within the main loop
+//
+//something to take care of dont forget to include pop style color every time you push a style color of any imgui element
+//
+//
+//
+//
