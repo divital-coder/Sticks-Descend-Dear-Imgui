@@ -75,3 +75,10 @@ ImGui:GetWindowDrawList()->AddRectFilledMultiColor(position,position_two, color,
 
 
 }
+
+
+
+//proceed with caution , following things are not to be ignored while working with imgui code
+always include the begin and end functions for imgui, dont forget to end.
+never leave a string empty within an imgui component function, like Begin.
+always pop your style colors accordingly while working with styles. // this is the one that causes the bugs the most .
